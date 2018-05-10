@@ -5,7 +5,7 @@ Feature: Create Giving Page sgtep
 	
 Scenario: Verify copy and inline validation in create Giving page step
 	# Navigate to Giving page registration via Comicrelief site
-	Given I navigate to "https://cr-frost-systest.apps.comicrelief.com/registration"
+	Given I navigate to giving page registration via cr
 	And I maximize browser window
 	Then element having css ".intro-copy" should have text as "Enter your email address to get started."
 	
@@ -30,6 +30,7 @@ Scenario: Verify copy and inline validation in create Giving page step
 	And I wait 3 seconds for element having css ".form__field--userUrlGp" to display
 
 	# validate link field error message
+	And I wait 3 seconds for element having id "userUrlGp" to be enabled
 	And I clear input field having id "userUrlGp"
 	Then element having css "div.userUrlGp>div>div>span>div>p" should have text as "Hey! You need to enter a link - it's how sponsors will find your page."
 	
@@ -62,7 +63,12 @@ Scenario: Verify copy and inline validation in create Giving page step
 	And I click on element having id "btnNext"
 	Then element having css ".profile-head>h1" should have text as "Comic Relief Giving Page"
 	And element having css ".profile-head>h3" should have first name
-	And I wait for 10 sec
+	And I wait for 5 sec
+	
+	# Log out
+	When I click on link having text "Log out"
+	Then element having css ".intro>div>section>h1" should have text as "Log in to your Giving Page"
+	 
 	
 	
 	

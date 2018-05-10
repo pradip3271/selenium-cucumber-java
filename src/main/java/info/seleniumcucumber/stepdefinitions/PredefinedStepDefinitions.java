@@ -17,7 +17,9 @@ import info.seleniumcucumber.methods.BaseTest;
 import info.seleniumcucumber.methods.TestCaseFailed;
 
 public class PredefinedStepDefinitions implements BaseTest {
+
 	protected WebDriver driver = DriverUtil.getDefaultDriver();
+
 	//Navigation Steps
 	
 	//Step to navigate to specified URL
@@ -553,4 +555,6 @@ public class PredefinedStepDefinitions implements BaseTest {
 	public final void tearDown() {
 		DriverUtil.closeDriver();
 	}
+	
+
 }
