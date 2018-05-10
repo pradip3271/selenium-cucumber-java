@@ -29,7 +29,7 @@ public class DriverUtil {
 			return driver;
 		}
         //System.setProperty("webdriver.chrome.driver", "webdrivers/chromedriver.exe");
-        //System.setProperty("webdriver.gecko.driver", "./geckodriver");
+        System.setProperty("webdriver.gecko.driver", "./geckodriver");
         DesiredCapabilities capabilities = null;
 		capabilities = DesiredCapabilities.firefox();
         capabilities.setJavascriptEnabled(true);

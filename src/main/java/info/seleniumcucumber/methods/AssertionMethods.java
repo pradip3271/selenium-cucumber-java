@@ -82,6 +82,8 @@ public class AssertionMethods extends SelectElementByType implements BaseTest
 	{
 		String elementText = getElementText(accessType, accessName);
 		
+		System.out.println("<<<<<<< Expected Text :" + elementText);
+		
 		if (testCase)
 		{
 			if (!elementText.equals(actualValue))
