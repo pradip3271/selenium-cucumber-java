@@ -16,6 +16,7 @@ Scenario: Verify copy and inline validation in create Giving page step
 	Then element having css "form#create-account>div:nth-child(3)>div:nth-child(2)>div>h1>div" should have text as "Welcome"
 	
 	# Over 16 registration
+	And I wait 5 seconds for element having id "over" to display
 	When I click on element having id "over"
 	And I enter random first name into input field having id "firstName" 
 	And I enter random last name into input field having id "lastName"
