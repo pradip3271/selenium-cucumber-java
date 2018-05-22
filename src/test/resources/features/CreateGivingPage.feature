@@ -7,6 +7,7 @@ Scenario: Verify copy and inline validation in create Giving page step
 	# Navigate to Giving page registration via Comicrelief site
 	Given I navigate to giving page registration via cr
 	And I maximize browser window
+	And I click on element having css ".cc_button"
 	Then element having css ".intro-copy" should have text as "Enter your email address to get started."
 	
 	# Enter random email address
@@ -33,11 +34,12 @@ Scenario: Verify copy and inline validation in create Giving page step
 	# validate link field error message
 	And I wait 3 seconds for element having id "userUrlGp" to be enabled
 	And I clear input field having id "userUrlGp"
+	And I wait for 5 sec
+	And I click on element having id "userFrTarget"
 	Then element having css "div.userUrlGp>div>div>span>div>p" should have text as "Hey! You need to enter a link - it's how sponsors will find your page."
 	
 	# validate link field success message
 	When I enter random name into input field having id "userUrlGp"
-	And I scroll to element having id "userFrTarget"
 	And I click on element having id "userFrTarget"
 	Then element having css "p.validation__success>span:nth-child(2)" should have text as "This link is available"
 	 

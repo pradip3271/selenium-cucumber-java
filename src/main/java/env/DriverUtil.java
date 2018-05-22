@@ -15,6 +15,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 /**
  * Created by tom on 24/02/17.
  */
@@ -60,24 +62,26 @@ public class DriverUtil {
 				chromeOptions.addArguments("--headless");
 			}
 			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-			System.setProperty("webdriver.chrome.driver", "./chromedriver");
+//			System.setProperty("webdriver.chrome.driver", "./chromedriver");
+			WebDriverManager.chromedriver().setup();
 			System.out.println("********************* loading chrome driver");
 			driver = new ChromeDriver();
 			return driver;
 		// case "phantomjs":
 		// return new PhantomJSDriver(capabilities);
 		default:
-			capabilities = DesiredCapabilities.firefox();
-			capabilities.setJavascriptEnabled(true);
-			capabilities.setCapability("takesScreenshot", true);
-			FirefoxOptions options = new FirefoxOptions();
-			if (headless) {
-				options.addArguments("-headless", "-safe-mode");
-			}
-			capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
-			System.setProperty("webdriver.gecko.driver", "./geckodriver");
+//			capabilities = DesiredCapabilities.firefox();
+//			capabilities.setJavascriptEnabled(true);
+//			capabilities.setCapability("takesScreenshot", true);
+//			FirefoxOptions options = new FirefoxOptions();
+//			if (headless) {
+//				options.addArguments("-headless", "-safe-mode");
+//			}
+//			capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
+//			System.setProperty("webdriver.gecko.driver", "./geckodriver");
+//			WebDriverManager.firefoxdriver().setup();
 			System.out.println("********************* loading firefox driver");
-			driver = new FirefoxDriver(capabilities);
+			driver = new FirefoxDriver();
 			return driver;
 		}
 	}
